@@ -1,3 +1,4 @@
+import random
 from persona import Persona
 from viaje import Viaje
 
@@ -17,7 +18,9 @@ class Pasajero(Persona):
             print("Error: el origen y el destino no pueden ser iguales.")
             return None
 
-        viaje = Viaje(origen, destino)
+        # tuve que generar un id numérico para cumplir con los requerimientos de la clase Viaje no encontre otra forma que me funcionara ksks
+        id_viaje = random.randint(100, 999)
+        viaje = Viaje(id_viaje, origen, destino)
 
         return viaje
 
@@ -30,8 +33,15 @@ class Pasajero(Persona):
         print("Error: el viaje no puede ser cancelado.")
         return False
 
-    #IMPLEMENTAR METODO
+
     def calificarViaje(self, viaje, puntuacion):
-
-        pass
-
+        if viaje.estado != "FINALIZADO":
+            print("Error: Solo se pueden calificar viajes en estado FINALIZADO.")
+            return False
+            
+        if not (1 <= puntuacion <= 5):
+            print("Error: La puntuación debe estar entre 1 y 5.")
+            return False
+            
+        print(f"Viaje {viaje.id} calificado exitosamente con {puntuacion} estrellas.")
+        return True

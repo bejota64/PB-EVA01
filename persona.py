@@ -12,7 +12,7 @@ class Persona:
 
     #Realizar este metodo para actualizar el telefono de la persona
     def actualizarTelefono(self, telefono):
-        pass
+        self.telefono = telefono
 
     def obtenerNombre(self):
         return self.nombre

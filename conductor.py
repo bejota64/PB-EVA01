@@ -38,9 +38,8 @@ class Conductor(Persona):
         return True
 
     #realizar este metodo
-    def cambiarDisponibilidad(self):
-
+    def cambiarDisponibilidad(self, estado_disponible):
+        self.disponible = estado_disponible
         pass
     def obtenerHistorial(self):
-
         return self.viajesRealizados
